@@ -29,5 +29,3 @@ config BCM4329_NVRAM_PATH
 	  Path to the calibration file.
 
 endif #BCM4329_PURE_ANDROID
-
-
