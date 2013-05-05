@@ -1,7 +1,6 @@
 /* linux/arch/arm/mach-msm/board-mecha-audio.c
  *
- * Copyright (C) 2009 Google, Inc.
- * Copyright (C) 2010 HTC Corporation.
+ * Copyright (C) 2010-2011 HTC Corporation.
  *
  * This software is licensed under the terms of the GNU General Public
  * License version 2, as published by the Free Software Foundation, and
@@ -13,15 +12,15 @@
  * GNU General Public License for more details.
  *
  */
+
 #include <linux/android_pmem.h>
 #include <linux/mfd/pmic8058.h>
 #include <linux/mfd/marimba.h>
 #include <linux/delay.h>
+#include <mach/tpa2051d3.h>
 #include <mach/gpio.h>
 #include <mach/dal.h>
 #include "board-mecha.h"
-#include <mach/tpa2051d3.h>
-
 #include <mach/qdsp5v2_1x/snddev_icodec.h>
 #include <mach/qdsp5v2_1x/snddev_ecodec.h>
 #include <mach/qdsp5v2_1x/audio_def.h>
@@ -396,7 +395,6 @@ void __init mecha_audio_init(void)
 	};
 
 	mutex_init(&bt_sco_lock);
-
 #ifdef CONFIG_MSM7KV2_1X_AUDIO
 	htc_7x30_register_analog_ops(&ops);
 	htc_7x30_register_icodec_ops(&iops);

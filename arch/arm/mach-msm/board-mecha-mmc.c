@@ -243,7 +243,7 @@ static unsigned int mecha_wifi_status(struct device *dev)
 }
 
 static struct mmc_platform_data mecha_wifi_data = {
-	.ocr_mask		= MMC_VDD_20_21,
+	.ocr_mask		= MMC_VDD_28_29,
 	.status			= mecha_wifi_status,
 	.register_status_notify	= mecha_wifi_status_register,
 	.embedded_sdio		= &mecha_wifi_emb_data,
@@ -398,6 +398,7 @@ int __init mecha_init_mmc(unsigned int sys_rev)
 		printk(KERN_INFO "mecha: SD-Card interface disabled\n");
 		goto done;
 	}
+
 	vreg_sdslot = vreg_get(0, "gp10");
 	if (IS_ERR(vreg_sdslot))
 		return PTR_ERR(vreg_sdslot);

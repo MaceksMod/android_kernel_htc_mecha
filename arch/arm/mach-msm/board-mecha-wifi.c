@@ -9,7 +9,7 @@
 #include <asm/gpio.h>
 #include <asm/io.h>
 #include <linux/skbuff.h>
-#include <linux/wlan_plat.h>
+#include <linux/wifi_tiwlan.h>
 
 #include "board-mecha.h"
 
@@ -132,12 +132,12 @@ int __init mecha_wifi_init(void)
 {
 	int ret;
 
-    printk(KERN_INFO "%s: start\n", __func__);
-    mecha_wifi_update_nvs("sd_oobonly=1\n");
-    mecha_wifi_update_nvs("btc_params80=0\n");
-    mecha_wifi_update_nvs("btc_params6=30\n");
-    mecha_wifi_update_nvs("btc_params70=0x32\n");
-    mecha_init_wifi_mem();
-    ret = platform_device_register(&mecha_wifi_device);
-    return ret;
+	printk(KERN_INFO "%s: start\n", __func__);
+	mecha_wifi_update_nvs("sd_oobonly=1\n");
+	mecha_wifi_update_nvs("btc_params80=0\n");
+	mecha_wifi_update_nvs("btc_params6=30\n");
+	mecha_wifi_update_nvs("btc_params70=0x32\n");
+	mecha_init_wifi_mem();
+	ret = platform_device_register(&mecha_wifi_device);
+	return ret;
 }
