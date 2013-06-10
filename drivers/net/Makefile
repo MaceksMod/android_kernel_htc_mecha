@@ -292,12 +292,16 @@ obj-$(CONFIG_FS_ENET) += fs_enet/
 
 obj-$(CONFIG_NETXEN_NIC) += netxen/
 
-ifndef CONFIG_QCT_LTE
+ifdef CONFIG_ARCH_MSM8X60
+obj-$(CONFIG_MSM_RMNET) += msm_rmnet-8x60.o
+obj-$(CONFIG_ARCH_MSM8X60_LTE) += 8x60-lte/
+else
+ifndef CONFIG_ARCH_MSM7X30_LTE
 obj-$(CONFIG_MSM_RMNET) += msm_rmnet.o
 else
-obj-$(CONFIG_QCT_LTE) += lte/
+obj-$(CONFIG_ARCH_MSM7X30_LTE) += 7x30-lte/
 endif
-
+endif
 obj-$(CONFIG_NIU) += niu.o
 obj-$(CONFIG_VIRTIO_NET) += virtio_net.o
 obj-$(CONFIG_SFC) += sfc/
