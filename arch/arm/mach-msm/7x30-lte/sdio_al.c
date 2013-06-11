@@ -3018,19 +3018,6 @@ static int __init sdio_al_init(void)
 
 	pr_info(MODULE_NAME ":sdio_al_init\n");
 
-	/* Switch sdio debug flag by kernelflag */
-	if (get_kernel_flag() & BIT16) /* rpc debug with raw data */
-		sdio_dbg_flag |= 0x70100;
-	if (get_kernel_flag() & BIT17) /* qmi debug with raw data*/
-		sdio_dbg_flag |= 0x104400;
-	if (get_kernel_flag() & BIT18) /* rmnet debug with raw data */
-		sdio_dbg_flag |= 0x88200;
-	if (get_kernel_flag() & BIT19) /* al debug */
-		sdio_dbg_flag |= 0x7;
-	if (get_kernel_flag() & BIT20) /* all raw data, no deubg msg */
-		sdio_dbg_flag |= 0x148f00;
-	pr_info(MODULE_NAME ": %s(): get sdio_dbg_flag=0x%x\n", __func__, sdio_dbg_flag);
-
 	sdio_al = kzalloc(sizeof(struct sdio_al), GFP_KERNEL);
 	if (sdio_al == NULL) {
 		al_err(MODULE_NAME ":Error - sdio_al kzalloc : -ENOMEM\n");

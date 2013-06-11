@@ -2348,17 +2348,6 @@ static int __init rpcrouter_init(void)
 
 	msm_rpc_connect_timeout_ms = 0;
 	smd_rpcrouter_debug_mask |= SMEM_LOG;
-	/* Switch smd_rpcrouter_debug_mask by kernelflag */
-	if (get_kernel_flag() & BIT8)
-		smd_rpcrouter_debug_mask |= (RTR_DBG | NTFY_MSG);
-	if (get_kernel_flag() & BIT9)
-		smd_rpcrouter_debug_mask |= R2R_MSG;
-	if (get_kernel_flag() & BIT10)
-		smd_rpcrouter_debug_mask |= (R2R_RAW_HDR | RAW_PMR | RAW_PMW);
-	if (get_kernel_flag() & BIT11)
-		smd_rpcrouter_debug_mask |= RPC_MSG;
-	pr_info("%s(): get smd_rpcrouter_debug_mask=0x%x\n", __func__, smd_rpcrouter_debug_mask);
-
 	debugfs_init();
 
 	/* Initialize what we need to start processing */
